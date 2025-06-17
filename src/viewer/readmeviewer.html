@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-  <title>AasishPokhrel/shit - SHIT VIEWER 3000</title>
+  <title>SHIT VIEWER 3000</title>
   <link rel="stylesheet" href="github-markdown.css">
 </head>
 <body>
@@ -23,7 +23,7 @@
     
     document.getElementById('content').innerHTML = marked.parse("# welcomen to the shit viewer!\nhere, you can view the shit from any point in time.\n\nselect your readme from the history");
 
-    ipcRenderer.on('load-md', (event, filePath) => {
+    ipcRenderer.on('load-md', (event, filePath, name) => {
       fs.readFile(filePath, 'utf-8', (err, data) => {
         if (err) {
           document.getElementById('content').innerText = marked.parse("# error loading filet");;
@@ -31,6 +31,7 @@
         }
 
         document.getElementById('content').innerHTML = marked.parse(data);
+        document.title = "SHIT VIEWER 3000 - " + name
       });
     });
     ipcRenderer.on('theme-updated', (event, isDark) => {
