@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>AasishPokhrel/shit - SHIT VIEWER 3000</title>
+  <link rel="stylesheet" href="github-markdown.css">
+</head>
+<body>
+  <div id="content" class="markdown-body">insert cash or select payment type</div>
+
+  <script>
+    const marked = require('marked');
+    document.getElementById('content').innerHTML = marked.parse("# welcomen to the shit viewer!\nhere, you can view the shit from any point in time.\n\nselect your readme from the history");
+
+
+    const { ipcRenderer } = require('electron');
+    const fs = require('fs');
+
+    ipcRenderer.on('load-md', (event, filePath) => {
+      console.log("hello")
+      fs.readFile(filePath, 'utf-8', (err, data) => {
+        if (err) {
+          document.getElementById('content').innerText = 'Error loading file';
+          return;
+        }
+        // Use your markdown renderer here, e.g. marked.js
+        document.getElementById('content').innerHTML = marked.parse(data);
+      });
+    });
+  </script>
+</body>
+</html>
