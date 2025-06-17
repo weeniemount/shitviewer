@@ -1,4 +1,4 @@
-name: Build App Launcher for Windows
+name: builedth shit viewer windows
 
 on:
   workflow_dispatch:
@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: buibl
-        run: npm run build -- --win --x64
+        run: npm run dist -- --win --x64
 
       - name: jupload
         uses: actions/upload-artifact@v4
