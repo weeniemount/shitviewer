@@ -41,14 +41,17 @@
       "category": "public.app-category.utilities"
     },
     "win": {
+      "icon": "src/icons/icon-windows.ico",
       "target": [
         "nsis"
       ]
     },
     "linux": {
+      "icon": "src/icons/icon-linux.png",
       "target": [
         "AppImage",
-        "deb"
+        "deb",
+        "rpm"
       ],
       "category": "Utility"
     }
