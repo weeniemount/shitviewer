@@ -38,7 +38,7 @@
       "package.json"
     ],
     "mac": {
-      "icon": "src/icons/icon-macos.ico",
+      "icon": "src/icons/icon-macos.icns",
       "target": [
         "dmg"
       ],
