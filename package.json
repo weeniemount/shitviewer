@@ -21,8 +21,11 @@
     "url": "https://github.com/weeniemount/shit/issues"
   },
   "homepage": "https://github.com/weeniemount/shit#readme",
-  "dependencies": {
+  "devDependencies": {
     "electron": "^8.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "dependencies": {
     "marked": "^4.0.12"
   }
 }
