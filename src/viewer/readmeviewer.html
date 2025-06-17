@@ -21,7 +21,7 @@
     const { ipcRenderer } = require('electron');
     const fs = require('fs');
     
-    document.getElementById('content').innerHTML = marked.parse("# welcomen to the shit viewer!\nhere, you can view the shit from any point in time.\n\nselect your readme from the history in the menu bar. select SHIT VIEWER if on macOS");
+    document.getElementById('content').innerHTML = marked.parse("# welcomen to the shit viewer!\nhere, you can view the shit from any point in time.\n\nselect your readme from the history in the menu bar.");
 
     ipcRenderer.on('load-md', (event, filePath, name) => {
       fs.readFile(filePath, 'utf-8', (err, data) => {
@@ -36,6 +36,11 @@
     });
     ipcRenderer.on('theme-updated', (event, isDark) => {
       document.body.dataset.theme = isDark ? 'dark' : 'light';
+    });
+
+    ipcRenderer.on('poo', (event) => {
+      document.body.style.backgroundColor = "#a16300"
+      document.getElementById("content").style.backgroundColor = "#a16300"
     });
   </script>
 </body>

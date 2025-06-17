@@ -1,5 +1,6 @@
 const { app, BrowserWindow, Menu, shell } = require('electron');
 const path = require('path');
+const { exit } = require('process');
 
 const iconPath = path.join(__dirname, 'icons', 
 	process.platform === 'win32' ? 'icon-windows.ico' :
@@ -47,12 +48,34 @@ function createWindow() {
 	];
 
 	const menu = Menu.buildFromTemplate([
+		{ label: 'file 📄', submenu: [
+			{
+				label: "quit ❌",
+				click: (menuItem, browserWindow) => {
+					exit()
+				}
+			},
+		]},
 		{ label: 'historay ⌚', submenu: fileSubmenu },
+		{ label: 'view 🔍', submenu: [
+			{ 
+				label: 'make it poo colored 💩', 
+				click: (menuItem, browserWindow) => {
+					if (browserWindow) win.webContents.send("poo")
+				}
+			}
+		]},
 		{ label: 'tool 🔧', submenu: [
 			{ 
 				label: 'dev tool 🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧', 
 				click: (menuItem, browserWindow) => {
-					if (browserWindow) browserWindow.webContents.openDevTools();
+					if (browserWindow) win.webContents.openDevTools();
+				}
+			},
+			{
+				label: "reload 🔃",
+				click: (menuItem, browserWindow) => {
+					if (browserWindow) win.webContents.reload();
 				}
 			}
 		]},
