@@ -1,8 +1,12 @@
-const { app, BrowserWindow, Menu, nativeTheme } = require('electron');
+const { app, BrowserWindow, Menu, shell } = require('electron');
 const path = require('path');
 
 const iconPath = path.join(__dirname, 'icons', 
 	process.platform === 'win32' ? 'icon-windows.ico' : 'icon-linux.png'
+);
+
+const iconAboutPath = path.join(__dirname, 'icons', 
+	process.platform === 'win32' ? 'about-windows.ico' : 'about-linux.png'
 );
 
 function createWindow() {
@@ -48,9 +52,42 @@ function createWindow() {
 				}
 			}
 		]},
+		{ label: 'help ❓', submenu: [
+			{ 
+				label: 'about this app ℹ️', 
+				click: (menuItem, browserWindow) => {
+					if (browserWindow) createAboutWindow();
+				}
+			},
+			{ type: 'separator' },
+			{ 
+				label: 'shit repo 💩', 
+				click: (menuItem, browserWindow) => {
+					if (browserWindow) shell.openExternal("https://github.com/AasishPokhrel/shit")
+				}
+			}
+		]},
 	]);
 
 	Menu.setApplicationMenu(menu);
+}
+
+function createAboutWindow() {
+	const win = new BrowserWindow({
+		width: 640,
+		height: 280,
+        title: 'about this app',
+		icon: iconAboutPath,
+		autoHideMenuBar: true,
+		webPreferences: {
+			nodeIntegration: true,
+			contextIsolation: false,
+            sandbox: false,
+            devTools: true,
+		}
+	});
+
+	win.loadFile(path.join(__dirname, 'about.html'));
 }
 
 app.whenReady().then(createWindow);

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>SHIT VIEWER 3000</title>
-  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="../github-markdown.css">
 </head>
 <body>
   <div id="content" class="markdown-body">insert cash or select payment type</div>
@@ -21,7 +21,7 @@
     const { ipcRenderer } = require('electron');
     const fs = require('fs');
     
-    document.getElementById('content').innerHTML = marked.parse("# welcomen to the shit viewer!\nhere, you can view the shit from any point in time.\n\nselect your readme from the history");
+    document.getElementById('content').innerHTML = marked.parse("# welcomen to the shit viewer!\nhere, you can view the shit from any point in time.\n\nselect your readme from the history in the menu bar. select SHIT VIEWER if on macOS");
 
     ipcRenderer.on('load-md', (event, filePath, name) => {
       fs.readFile(filePath, 'utf-8', (err, data) => {
