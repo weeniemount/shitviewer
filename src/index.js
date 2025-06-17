@@ -14,7 +14,7 @@ function createWindow() {
 		}
 	});
 
-	win.loadFile(path.join(__dirname, 'readme.html'));
+	win.loadFile(path.join(__dirname, 'readmeviewer.html'));
 
 	const fileSubmenu = [
 		{ label: 'June 11 - 7:50', click: () => win.webContents.send('load-md', path.join(__dirname, 'readmes/june11-2025-7-50.md')) },
