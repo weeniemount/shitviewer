@@ -1,16 +1,21 @@
 const { app, BrowserWindow, Menu, nativeTheme } = require('electron');
 const path = require('path');
 
+const iconPath = path.join(__dirname, 'icons', 
+	process.platform === 'win32' ? 'icon-windows.ico' : 'icon-linux.png'
+);
+
 function createWindow() {
 	const win = new BrowserWindow({
 		width: 800,
 		height: 600,
         title: 'SHIT VIEWER 3000',
+		icon: iconPath,
 		webPreferences: {
 			nodeIntegration: true,
 			contextIsolation: false,
             sandbox: false,
-            devTools: true
+            devTools: true,
 		}
 	});
 
