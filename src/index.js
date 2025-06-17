@@ -8,7 +8,9 @@ const iconPath = path.join(__dirname, 'icons',
 );
 
 const iconAboutPath = path.join(__dirname, 'icons', 
-	process.platform === 'win32' ? 'about-windows.ico' : 'about-linux.png'
+	process.platform === 'win32' ? 'about-windows.ico' :
+	process.platform === 'darwin' ? 'about-macos.icns' :
+	'about-linux.png'
 );
 
 function createWindow() {
