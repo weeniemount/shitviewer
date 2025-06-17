@@ -17,13 +17,12 @@
     const fs = require('fs');
 
     ipcRenderer.on('load-md', (event, filePath) => {
-      console.log("hello")
       fs.readFile(filePath, 'utf-8', (err, data) => {
         if (err) {
           document.getElementById('content').innerText = 'Error loading file';
           return;
         }
-        // Use your markdown renderer here, e.g. marked.js
+
         document.getElementById('content').innerHTML = marked.parse(data);
       });
     });
