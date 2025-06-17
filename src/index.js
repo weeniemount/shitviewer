@@ -2,7 +2,9 @@ const { app, BrowserWindow, Menu, shell } = require('electron');
 const path = require('path');
 
 const iconPath = path.join(__dirname, 'icons', 
-	process.platform === 'win32' ? 'icon-windows.ico' : 'icon-linux.png'
+	process.platform === 'win32' ? 'icon-windows.ico' :
+	process.platform === 'darwin' ? 'icon-macos.icns' :
+	'icon-linux.png'
 );
 
 const iconAboutPath = path.join(__dirname, 'icons', 
