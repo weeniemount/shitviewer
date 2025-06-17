@@ -18,7 +18,7 @@ function createWindow() {
 	const win = new BrowserWindow({
 		width: 800,
 		height: 600,
-        title: 'SHIT VIEWER 3000',
+        title: 'SHIT VIEWER',
 		icon: iconPath,
 		webPreferences: {
 			nodeIntegration: true,
@@ -28,6 +28,8 @@ function createWindow() {
 		}
 	});
 
+	win.webContents.zoomFactor = 0
+	win.webContents.zoomLevel = 0
 	win.loadFile(path.join(__dirname, 'viewer/readmeviewer.html'));
 
 	const fileSubmenu = [
@@ -62,6 +64,19 @@ function createWindow() {
 				label: 'make it poo colored 💩', 
 				click: (menuItem, browserWindow) => {
 					if (browserWindow) win.webContents.send("poo")
+				}
+			},
+			{ type: "separator" },
+			{ 
+				label: 'zoom in 🔎', 
+				click: (menuItem, browserWindow) => {
+					if (browserWindow) win.webContents.zoomFactor += 0.1
+				}
+			},
+			{
+				label: 'zoom out 🔍', 
+				click: (menuItem, browserWindow) => {
+					if (browserWindow) win.webContents.zoomFactor -= 0.1
 				}
 			}
 		]},

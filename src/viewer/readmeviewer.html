@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-  <title>SHIT VIEWER 3000</title>
+  <title>SHIT VIEWER</title>
   <link rel="stylesheet" href="../github-markdown.css">
 </head>
 <body>
@@ -31,7 +31,7 @@
         }
 
         document.getElementById('content').innerHTML = marked.parse(data);
-        document.title = "SHIT VIEWER 3000 - " + name
+        document.title = "SHIT VIEWER - " + name
       });
     });
     ipcRenderer.on('theme-updated', (event, isDark) => {
