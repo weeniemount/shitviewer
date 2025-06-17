@@ -1,11 +1,12 @@
 {
-  "name": "aasishpokhrel-shit",
+  "name": "shitviewer",
   "version": "1.0.0",
   "description": "View the shit on multiple platforms at any point in history!",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder"
   },
   "repository": {
     "type": "git",
@@ -27,5 +28,37 @@
   },
   "dependencies": {
     "marked": "^4.0.12"
+  },
+  "build": {
+    "appId": "com.weeniemount.shitviewer",
+    "productName": "SHIT VIEWER",
+    "executableName": "shitviewer",
+    "afterPack": "./scripts/removeUnneededFiles.js",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "readmes/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility"
+    }
   }
 }
