@@ -8,23 +8,33 @@
 <body>
   <div id="content" class="markdown-body">insert cash or select payment type</div>
 
+  <style>
+    @media (prefers-color-scheme: dark) {
+      body, [data-theme="dark"] {
+        background-color: #0d1117;
+      }
+    }
+  </style>
+
   <script>
     const marked = require('marked');
-    document.getElementById('content').innerHTML = marked.parse("# welcomen to the shit viewer!\nhere, you can view the shit from any point in time.\n\nselect your readme from the history");
-
-
     const { ipcRenderer } = require('electron');
     const fs = require('fs');
+    
+    document.getElementById('content').innerHTML = marked.parse("# welcomen to the shit viewer!\nhere, you can view the shit from any point in time.\n\nselect your readme from the history");
 
     ipcRenderer.on('load-md', (event, filePath) => {
       fs.readFile(filePath, 'utf-8', (err, data) => {
         if (err) {
-          document.getElementById('content').innerText = 'Error loading file';
+          document.getElementById('content').innerText = marked.parse("# error loading filet");;
           return;
         }
 
         document.getElementById('content').innerHTML = marked.parse(data);
       });
+    });
+    ipcRenderer.on('theme-updated', (event, isDark) => {
+      document.body.dataset.theme = isDark ? 'dark' : 'light';
     });
   </script>
 </body>

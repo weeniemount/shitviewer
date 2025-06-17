@@ -31,4 +31,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: shitviewer-macos
-          path: dist/**/*.dmg
+          path: |
+            dist/**/*.dmg
+            dist/**/*.zip

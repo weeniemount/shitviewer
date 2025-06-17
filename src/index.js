@@ -1,11 +1,11 @@
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, Menu, nativeTheme } = require('electron');
 const path = require('path');
 
 function createWindow() {
 	const win = new BrowserWindow({
 		width: 800,
 		height: 600,
-        title: 'AasishPokhrel/shit - SHIT VIEWER 3000',
+        title: 'SHIT VIEWER 3000',
 		webPreferences: {
 			nodeIntegration: true,
 			contextIsolation: false,
@@ -35,14 +35,6 @@ function createWindow() {
 
 	const menu = Menu.buildFromTemplate([
 		{ label: 'historay ⌚', submenu: fileSubmenu },
-        { label: 'view 📷', submenu: [
-            { 
-                label: 'darkingtons mode 🌑', 
-                click: (menuItem, browserWindow) => {
-                    if (browserWindow) browserWindow.webContents.openDevTools();
-                }
-            }
-        ]},
 		{ label: 'tool 🔧', submenu: [
 			{ 
 				label: 'dev tool 🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧', 
