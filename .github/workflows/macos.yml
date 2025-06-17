@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: build
-        run: npm run dist -- --mac --universal
+        run: npm run dist -- --mac --x64
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
