@@ -48,7 +48,8 @@ function createWindow() {
 		{ label: 'June 15 2025 - 18:05 (02)', click: () => win.webContents.send('load-md', path.join(__dirname, 'readmes/june15-2025-18-05-02.md'), 'June 15 2025 - 18:05 (02)') },
 		{ label: 'June 15 2025 - 18:05 (03)', click: () => win.webContents.send('load-md', path.join(__dirname, 'readmes/june15-2025-18-05-03.md'), 'June 15 2025 - 18:05 (03)') },
 		{ label: 'June 25 2025 - 5:13', click: () => win.webContents.send('load-md', path.join(__dirname, 'readmes/june25-2025-5-13.md'), 'June 25 2025 - 5:13') },
-		{ label: 'June 25 2025 - 8:59', click: () => win.webContents.send('load-md', path.join(__dirname, 'readmes/june25-2025-8-59.md'), 'June 25 2025 - 8:59') }
+		{ label: 'June 25 2025 - 8:59', click: () => win.webContents.send('load-md', path.join(__dirname, 'readmes/june25-2025-8-59.md'), 'June 25 2025 - 8:59') },
+		{ label: 'June 28 2025 - 3:53', click: () => win.webContents.send('load-md', path.join(__dirname, 'readmes/june28-2025-3-53.md'), 'June 28 2025 - 3:53') }
 	];
 
 	const menu = Menu.buildFromTemplate([

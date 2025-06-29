@@ -18,8 +18,19 @@
 
   <script>
     const marked = require('marked');
-    
-    document.getElementById('content').innerHTML = marked.parse("# about this app\nthis app was created so the shit can be cross platform and easy to use. simply select and go. amazing!");
+    const fs = require('fs');
+    const path = require('path')
+
+    const filePath = path.join(__dirname, 'readmes/ABOUT.md'); // or whatever file you want
+
+    fs.readFile(filePath, 'utf-8', (err, data) => {
+      if (err) {
+        document.getElementById('content').innerText = marked.parse("# error loading filet");;
+        return;
+      }
+
+      document.getElementById('content').innerHTML = marked.parse(data);
+    });
   </script>
 </body>
 </html>

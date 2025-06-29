@@ -1,6 +1,6 @@
 {
   "name": "shitviewer",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "View the shit on multiple platforms at any point in history!",
   "main": "src/index.js",
   "scripts": {
@@ -9,8 +9,8 @@
     "dist": "electron-builder"
   },
   "author": {
-    "name": "Aasih",
-    "email": "aasishpokharel0@gmail.com"
+    "name": "weenie",
+    "email": "weeniemount@garymail.com"
   },
   "license": "ISC",
   "devDependencies": {
@@ -21,7 +21,7 @@
     "marked": "^4.0.12"
   },
   "build": {
-    "appId": "com.aasih.shitviewer",
+    "appId": "com.weeniemount.shitviewer",
     "productName": "SHIT VIEWER",
     "executableName": "shitviewer",
     "afterPack": "./scripts/removeUnneededFiles.js",
