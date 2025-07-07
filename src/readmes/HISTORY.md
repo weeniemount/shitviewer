@@ -1,0 +1,2 @@
+# history of the shit
+basically one day a guy named AasishPokhrel made a repo called AasishPokhrel/shit and it was the 1 billionth repo. then everyone gave it stars and there was PR's and issue's and then he changed the readme a bunch of times before he sold the repo to Red-Killer who changed the readme back to its original state.
